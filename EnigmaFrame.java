@@ -106,37 +106,24 @@ public class EnigmaFrame extends JFrame implements ActionListener{
 
     }
 
-   // private class ConverterActionListener implements ActionListener {
+    public void actionPerformed(ActionEvent e) {
+        int r1 = rotor1.getSelectedIndex() + 1;
+        int r2 = rotor2.getSelectedIndex() + 1;
+        int r3 = rotor3.getSelectedIndex() + 1;
+        // System.out.println(r1 );//+ r2 + r3 + "" );
 
-        public void actionPerformed(ActionEvent e) {
-           // rotor1.get
+        String enigmaStart = startText.getText();
+        
+        Enigma enigma = new Enigma(r1, r2, r3, enigmaStart);
 
-            int r1 = rotor1.getSelectedIndex() + 1;
-            int r2 = rotor2.getSelectedIndex() + 1;
-            int r3 = rotor3.getSelectedIndex() + 1;
-            System.out.println(r1 );//+ r2 + r3 + "" );
-
-            String enigmaStart = startText.getText();
-            
-            String type = "";
-            Enigma enigma = new Enigma(r1, r2, r3, enigmaStart);
-
-            if (e.getSource() == enc){
-                type = "encrypt";
-                //enigma.encrypt(enigmaStart);
-                outText.setText(enigma.encrypt(inText.getText()));
-            }
-            else if (e.getSource() == dec){
-                type = "decrypt";
-                outText.setText(enigma.decrypt(inText.getText()));
-
-            }
-            //String[] s = {r1 + "", r2 + "", r3 + "", startText + "", type, enigmaStart};
-           // Comms.main(s);
-            
-            //outText.setText("" + Comms.main(s));
+        if (e.getSource() == enc){
+            outText.setText(enigma.encrypt(inText.getText()));
         }
-  // }
+        else if (e.getSource() == dec){
+            outText.setText(enigma.decrypt(inText.getText()));
 
+        }
+
+    }
 
 }
