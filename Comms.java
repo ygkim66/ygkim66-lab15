@@ -45,4 +45,6 @@ public class Comms {
     else
       System.out.println(enigma.decrypt(message));
   }
+
+
 }
