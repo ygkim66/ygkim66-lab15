@@ -42,14 +42,14 @@ public class EnigmaFrame extends JFrame implements ActionListener{
         super();
         p = new JPanel();
         
-        startText = new JTextField("huh", 5);
+        startText = new JTextField("###", 5);
         rotor1 = new JComboBox<String>(numbers);
         rotor2 = new JComboBox<String>(numbers);
         rotor3 = new JComboBox<String>(numbers);
 
         inText = new JTextArea(5,20);
         outText = new JTextArea(5,20);
-        //outText.setEditable(false);
+        outText.setEditable(false);
 
         enc = new JButton("Encrypt");
         dec = new JButton("Decrypt");
